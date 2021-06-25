@@ -1,0 +1,6 @@
+{
+    "queryStringParameters" : {
+        "url" : "https://google.com",
+        "screen": "800,600"
+    }
+}
