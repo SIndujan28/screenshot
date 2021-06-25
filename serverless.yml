@@ -1,0 +1,20 @@
+service: screenshot-service
+frameworkVersion: '2'
+
+provider:  
+  name: aws  
+  runtime: nodejs12.x  
+  region: ap-southeast-1
+
+functions:  
+ screenshot:  
+  handler: handler.screenShot # refers to function capture in handler.js
+  memorySize: 1536 # RAM size for the function  
+  timeout: 15
+  events:  
+    - http: # trigger function via http request  
+        path: capture
+        method: get  
+          
+  layers: # reference to the already existing layer with Chrome  
+    - arn:aws:lambda:ap-southeast-1:764866452798:layer:chrome-aws-lambda:24
